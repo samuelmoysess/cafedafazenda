@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pedidos recebidos | Cafeteria da Fazenda</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/adm.css">
+</head>
+
+<body class="admin-page">
+
+    <header class="admin-header">
+
+        <div class="container admin-header-content">
+
+            <div class="admin-brand">
+
+                <img src="../static/img/adm.png"
+                    alt="Administrador"
+                    class="admin-photo-small">
+
+                <div>
+                    <span>
+                        CAFETERIA DA FAZENDA
+                    </span>
+
+                    <h1>
+                        Painel de pedidos
+                    </h1>
+                </div>
+
+            </div>
+
+            <button id="logoutButton"
+                class="logout-button">
+                Sair
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="admin-main">
+
+        <div class="container">
+
+            <div class="dashboard-title">
+
+                <div>
+                    <span class="login-label">
+                        ADMINISTRADOR
+                    </span>
+
+                    <h2>
+                        Pedidos recebidos
+                    </h2>
+
+                    <p>
+                        Acompanhe os pedidos feitos pelos clientes.
+                    </p>
+                </div>
+
+                <button id="clearOrdersButton"
+                    class="clear-button">
+                    Limpar pedidos
+                </button>
+
+            </div>
+
+            <div id="ordersContainer"
+                class="orders-container">
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../static/js/adm.js"></script>
+
+</body>
+
+</html>

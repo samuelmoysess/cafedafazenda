@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pedidos | Cafeteria da Fazenda</title>
+    <meta name="description" content="Faça seu pedido na Cafeteria da Fazenda.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/pedidos.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+
+                <a class="navbar-brand d-flex align-items-center gap-2"
+                    href="../index.html">
+                    <img src="../static/img/logo.png"
+                        alt="Logo Cafeteria da Fazenda"
+                        class="brand-logo">
+                    <span>Cafeteria da Fazenda</span>
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal"
+                    aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Início</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="produtos.html">Produtos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="pedidos.html">Pedidos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="bolos.html">Bolos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn btn-coffee" href="localizacao.html">
+                                Localização
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- TÍTULO -->
+    <main>
+        <section class="orders-hero">
+            <div class="container">
+                <span class="eyebrow">CAFETERIA DA FAZENDA</span>
+
+                <h1>Faça seu <span>pedido</span></h1>
+
+                <p>
+                    Escolha seus produtos favoritos e monte seu pedido
+                    de um jeito simples e rápido.
+                </p>
+            </div>
+        </section>
+
+        <!-- ÁREA DE PEDIDOS -->
+        <section class="orders-section">
+            <div class="container">
+                <div class="row g-4">
+
+                    <!-- CARDÁPIO -->
+                    <div class="col-lg-7">
+                        <div class="order-card">
+
+                            <div class="order-heading">
+                                <div>
+                                    <span class="section-label">CARDÁPIO</span>
+                                    <h2>Escolha seus produtos</h2>
+                                </div>
+                            </div>
+
+                            <div class="products-list">
+
+                                <!-- 1. CAFÉ ESPRESSO -->
+                                <div class="order-product"
+                                    data-name="Café Espresso" data-price="5.00">
+
+                                    <img src="../static/img/cafe.png"
+                                        alt="Café Espresso">
+
+                                    <div class="product-details">
+                                        <span>CAFÉS</span>
+                                        <h3>Café Espresso</h3>
+                                        <p>Café intenso, aromático e preparado na hora.</p>
+                                        <strong>R$ 5,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 2. CAPPUCCINO -->
+                                <div class="order-product"
+                                    data-name="Cappuccino" data-price="10.00">
+
+                                    <img src="../static/img/cappucino.png"
+                                        alt="Cappuccino">
+
+                                    <div class="product-details">
+                                        <span>CAFÉS</span>
+                                        <h3>Cappuccino</h3>
+                                        <p>Creme, café e sabor em uma combinação especial.</p>
+                                        <strong>R$ 10,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 3. MOCACCINO -->
+                                <div class="order-product"
+                                    data-name="Mocaccino" data-price="13.00">
+
+                                    <img src="../static/img/Mocaccino.png"
+                                        alt="Mocaccino">
+
+                                    <div class="product-details">
+                                        <span>CAFÉS</span>
+                                        <h3>Mocaccino</h3>
+                                        <p>Mistura de café, chocolate e leite vaporizado.</p>
+                                        <strong>R$ 13,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 4. MILK-SHAKES -->
+                                <div class="order-product"
+                                    data-name="Milk-shakes" data-price="15.00">
+
+                                    <img src="../static/img/Milk-shakes.png"
+                                        alt="Milk-shakes">
+
+                                    <div class="product-details">
+                                        <span>BEBIDAS GELADAS</span>
+                                        <h3>Milk-shakes</h3>
+                                        <p>Bebida cremosa e cheia de sabor.</p>
+                                        <strong>R$ 15,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 5. SUCO DE LARANJA -->
+                                <div class="order-product"
+                                    data-name="Suco de Laranja Natural" data-price="5.50">
+
+                                    <img src="../static/img/laranja.png"
+                                        alt="Suco de Laranja Natural">
+
+                                    <div class="product-details">
+                                        <span>BEBIDAS GELADAS</span>
+                                        <h3>Suco de Laranja Natural</h3>
+                                        <p>Suco refrescante feito com laranjas frescas.</p>
+                                        <strong>R$ 5,50</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 6. COLD BREW -->
+                                <div class="order-product"
+                                    data-name="Cold Brew" data-price="10.90">
+
+                                    <img src="../static/img/Cold-Brew.png"
+                                        alt="Cold Brew">
+
+                                    <div class="product-details">
+                                        <span>BEBIDAS GELADAS</span>
+                                        <h3>Cold Brew</h3>
+                                        <p>Café preparado a frio, aromático e refrescante.</p>
+                                        <strong>R$ 10,90</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 7. BOLO DE CENOURA -->
+                                <div class="order-product"
+                                    data-name="Bolo de Cenoura" data-price="10.00">
+
+                                    <img src="../static/img/bolo-cenoura.webp"
+                                        alt="Bolo de Cenoura">
+
+                                    <div class="product-details">
+                                        <span>DOCES</span>
+                                        <h3>Bolo de Cenoura</h3>
+                                        <p>Bolo de cenoura com cobertura cremosa.</p>
+                                        <strong>R$ 10,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 8. CROISSANT -->
+                                <div class="order-product"
+                                    data-name="Croissant" data-price="7.00">
+
+                                    <img src="../static/img/croissant.png"
+                                        alt="Croissant">
+
+                                    <div class="product-details">
+                                        <span>PADARIA</span>
+                                        <h3>Croissant</h3>
+                                        <p>Croissant recheado com queijo e presunto.</p>
+                                        <strong>R$ 7,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 9. COXINHA -->
+                                <div class="order-product"
+                                    data-name="Coxinha" data-price="3.90">
+
+                                    <img src="../static/img/coxinha.png"
+                                        alt="Coxinha">
+
+                                    <div class="product-details">
+                                        <span>SALGADOS</span>
+                                        <h3>Coxinha</h3>
+                                        <p>Massa dourada com recheio de frango.</p>
+                                        <strong>R$ 3,90</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 10. MISTO QUENTE -->
+                                <div class="order-product"
+                                    data-name="Misto quente" data-price="5.50">
+
+                                    <img src="../static/img/Misto-quente.png"
+                                        alt="Misto quente">
+
+                                    <div class="product-details">
+                                        <span>LANCHES SALGADOS</span>
+                                        <h3>Misto quente</h3>
+                                        <p>Sanduíche quente de queijo e presunto.</p>
+                                        <strong>R$ 5,50</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 11. ESFIHAS -->
+                                <div class="order-product"
+                                    data-name="Esfihas" data-price="7.00">
+
+                                    <img src="../static/img/Esfirras.png"
+                                        alt="Esfihas">
+
+                                    <div class="product-details">
+                                        <span>LANCHES SALGADOS</span>
+                                        <h3>Esfihas</h3>
+                                        <p>Esfihas recheadas com queijo e presunto.</p>
+                                        <strong>R$ 7,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 12. SANDUÍCHE NATURAL -->
+                                <div class="order-product"
+                                    data-name="Sanduíche Natural" data-price="5.50">
+
+                                    <img src="../static/img/Sanduíches-naturais.png"
+                                        alt="Sanduíche Natural">
+
+                                    <div class="product-details">
+                                        <span>LANCHES SALGADOS</span>
+                                        <h3>Sanduíche Natural</h3>
+                                        <p>Sanduíche natural com recheio de frango.</p>
+                                        <strong>R$ 5,50</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 13. PAVÊ -->
+                                <div class="order-product"
+                                    data-name="Pavê" data-price="10.00">
+
+                                    <img src="../static/img/Pave.png"
+                                        alt="Pavê">
+
+                                    <div class="product-details">
+                                        <span>SOBREMESAS</span>
+                                        <h3>Pavê</h3>
+                                        <p>Sobremesa cremosa preparada em camadas.</p>
+                                        <strong>R$ 10,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 14. PUDIM -->
+                                <div class="order-product"
+                                    data-name="Pudim" data-price="7.00">
+
+                                    <img src="../static/img/pudim.png"
+                                        alt="Pudim">
+
+                                    <div class="product-details">
+                                        <span>SOBREMESAS</span>
+                                        <h3>Pudim</h3>
+                                        <p>Pudim clássico com cobertura cremosa.</p>
+                                        <strong>R$ 7,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 15. BRIGADEIRO GOURMET -->
+                                <div class="order-product"
+                                    data-name="Brigadeiro gourmet" data-price="4.00">
+
+                                    <img src="../static/img/Brigadeiro-gourmet.png"
+                                        alt="Brigadeiro gourmet">
+
+                                    <div class="product-details">
+                                        <span>SOBREMESAS</span>
+                                        <h3>Brigadeiro gourmet</h3>
+                                        <p>Brigadeiro gourmet cremoso e saboroso.</p>
+                                        <strong>R$ 4,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 16. AÇAÍ -->
+                                <div class="order-product"
+                                    data-name="Açaí" data-price="10.00">
+
+                                    <img src="../static/img/açai.png"
+                                        alt="Açaí">
+
+                                    <div class="product-details">
+                                        <span>OPÇÕES SAUDÁVEIS</span>
+                                        <h3>Açaí</h3>
+                                        <p>Açaí com granola e frutas frescas.</p>
+                                        <strong>R$ 10,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 17. TAPIOCA SAUDÁVEL -->
+                                <div class="order-product"
+                                    data-name="Tapioca Saudável" data-price="8.00">
+
+                                    <img src="../static/img/tapioca-saudavel.png"
+                                        alt="Tapioca Saudável">
+
+                                    <div class="product-details">
+                                        <span>OPÇÕES SAUDÁVEIS</span>
+                                        <h3>Tapioca Saudável</h3>
+                                        <p>Tapioca preparada com ingredientes naturais.</p>
+                                        <strong>R$ 8,00</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- 18. SALADA DE FRUTAS -->
+                                <div class="order-product"
+                                    data-name="Salada de Frutas" data-price="3.90">
+
+                                    <img src="../static/img/salada-de-frutas.png"
+                                        alt="Salada de Frutas">
+
+                                    <div class="product-details">
+                                        <span>OPÇÕES SAUDÁVEIS</span>
+                                        <h3>Salada de Frutas</h3>
+                                        <p>Salada preparada com frutas frescas.</p>
+                                        <strong>R$ 3,90</strong>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <button type="button" class="minus">−</button>
+                                        <span class="quantity-value">0</span>
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RESUMO DO PEDIDO -->
+                    <div class="col-lg-5">
+                        <div class="summary-card">
+
+                            <div class="summary-header">
+                                <div>
+                                    <span class="section-label">SEU PEDIDO</span>
+                                    <h2>Resumo</h2>
+                                </div>
+
+                                <span class="summary-icon">🛒</span>
+                            </div>
+
+                            <div id="cartItems" class="cart-items">
+                                <div class="empty-cart">
+                                    <p>Seu pedido está vazio.</p>
+                                    <small>Escolha um produto para começar.</small>
+                                </div>
+                            </div>
+
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <strong id="total">R$ 0,00</strong>
+                            </div>
+
+                            <!-- DADOS DO CLIENTE -->
+                            <div class="customer-form">
+                                <h3>Seus dados</h3>
+
+                                <div class="form-group">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" id="nome"
+                                        placeholder="Digite seu nome" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="telefone">Telefone</label>
+                                    <input type="tel" id="telefone"
+                                        placeholder="(11) 99999-9999" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pagamento">Forma de pagamento</label>
+
+                                    <select id="pagamento" required>
+                                        <option value="">Selecione</option>
+                                        <option value="Pix">Pix</option>
+                                        <option value="Cartão">Cartão</option>
+                                        <option value="Dinheiro">Dinheiro</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="observacoes">Observações</label>
+
+                                    <textarea id="observacoes" rows="3"
+                                        placeholder="Alguma observação sobre seu pedido?"></textarea>
+                                </div>
+
+                                <button type="button" class="finish-order"
+                                    id="finalizarPedido">
+                                    Finalizar pedido <span>→</span>
+                                </button>
+
+                                <div id="orderMessage" class="order-message"
+                                    role="status" aria-live="polite"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-content">
+                <div>
+                    <h3>Cafeteria da Fazenda</h3>
+                    <p>Café fresquinho, bolos caseiros e bons momentos.</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="../index.html">Início</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="pedidos.html">Pedidos</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Cafeteria da Fazenda. Todos os direitos reservados.
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SCRIPT DE PEDIDOS -->
+    <script src="../static/js/pedidos.js"></script>
+
+</body>
+</html>

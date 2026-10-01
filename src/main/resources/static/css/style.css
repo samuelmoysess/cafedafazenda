@@ -1,0 +1,713 @@
+/* =========================================================
+   CAFETERIA DA FAZENDA - STYLE.CSS
+   Tema branco e dourado
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+:root {
+    --brown: #ffffff;
+    --brown-2: #fffaf0;
+    --coffee: #a87916;
+    --gold: #d4a62a;
+    --gold-light: #f3df9b;
+    --cream: #ffffff;
+    --white: #ffffff;
+    --text: #2d261f;
+    --muted: #776f67;
+    --border: #eadfbd;
+    --dark: #3b2b16;
+    --sombra: 0 12px 35px rgba(168, 121, 22, .10);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--text);
+    background: var(--cream);
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, .97);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 8px 30px rgba(168, 121, 22, .12);
+}
+
+.navbar {
+    min-height: 76px;
+}
+
+.navbar-brand {
+    color: var(--dark) !important;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+.brand-logo {
+    width: 52px;
+    height: 52px;
+    padding: 3px;
+    object-fit: contain;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--white);
+}
+
+.brand-text {
+    font-size: 1.25rem;
+}
+
+.nav-link {
+    color: var(--dark) !important;
+    font-weight: 600;
+    transition: color .25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--gold) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--gold);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 .2rem rgba(212, 166, 42, .25);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%233b2b16' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.btn-coffee {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border: 2px solid var(--gold);
+    border-radius: 30px;
+    background: var(--gold);
+    color: var(--dark) !important;
+    font-weight: 800;
+    transition: .25s ease;
+}
+
+.btn-coffee:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+    background: transparent;
+    color: var(--gold) !important;
+}
+
+/* =========================================================
+   HERO / CARROSSEL
+   ========================================================= */
+
+.hero-section {
+    overflow: hidden;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-section .carousel-item {
+    position: relative;
+    height: min(680px, 78vh);
+    min-height: 480px;
+}
+
+.hero-section .carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg,
+            rgba(255, 255, 255, .94),
+            rgba(255, 255, 255, .55),
+            rgba(255, 255, 255, .08)),
+        linear-gradient(0deg,
+            rgba(255, 250, 240, .70),
+            transparent 55%);
+}
+
+.hero-section .carousel-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    z-index: 2;
+    right: auto;
+    bottom: 17%;
+    left: 9%;
+    max-width: 650px;
+    color: var(--dark);
+    text-align: left;
+}
+
+.carousel-caption .badge {
+    margin-bottom: 14px;
+    padding: 9px 15px;
+    border-radius: 30px;
+    background: var(--gold);
+    color: var(--dark);
+    font-weight: 800;
+}
+
+.carousel-caption h1,
+.carousel-caption h2 {
+    margin-bottom: 18px;
+    color: var(--dark);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.carousel-caption p {
+    max-width: 600px;
+    margin-bottom: 25px;
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: rgba(212, 166, 42, .95);
+    background-size: 55%;
+}
+
+.carousel-indicators {
+    z-index: 3;
+}
+
+.carousel-indicators button {
+    width: 35px !important;
+    height: 5px !important;
+    margin: 0 4px;
+    border: 0 !important;
+    border-radius: 10px;
+    background-color: var(--gold) !important;
+}
+
+/* =========================================================
+   SEÇÃO SOBRE
+   ========================================================= */
+
+.about-section {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(212, 166, 42, .08), transparent 25%),
+        #ffffff;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--coffee);
+    font-size: .8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin-bottom: 20px;
+    color: var(--dark);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.section-text {
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+/* =========================================================
+   IMAGEM SOBRE A CAFETERIA
+   ========================================================= */
+
+.about-image-wrapper {
+    position: relative;
+    padding: 12px;
+}
+
+.about-image {
+    width: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow: 0 18px 45px rgba(168, 121, 22, .16);
+}
+
+.about-highlight {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 22px;
+    border: 5px solid #ffffff;
+    border-radius: 20px;
+    background: var(--gold);
+    color: var(--dark);
+    text-align: center;
+}
+
+.about-highlight strong {
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.about-highlight span {
+    font-size: .85rem;
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.feature-card {
+    height: 100%;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(168, 121, 22, .07);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    box-shadow: var(--sombra);
+}
+
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    background: var(--gold-light);
+    color: var(--dark);
+    font-size: 1.6rem;
+}
+
+.feature-card h3 {
+    color: var(--dark);
+    font-family: "Playfair Display", serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.feature-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
+/* =========================================================
+   AMBIENTE
+   ========================================================= */
+
+.order-section {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(rgba(255, 250, 240, .93),
+            rgba(255, 250, 240, .93)),
+        url("../img/slide1.png") center / cover;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.order-box {
+    max-width: 850px;
+    margin: auto;
+    padding: 65px 35px;
+    color: var(--dark);
+}
+
+.order-box .section-label {
+    color: var(--coffee);
+}
+
+.order-box .section-title {
+    color: var(--dark);
+}
+
+.order-box p {
+    max-width: 700px;
+    margin: 0 auto 28px;
+    color: var(--muted);
+    font-size: 1.08rem;
+}
+
+/* =========================================================
+   BOTÕES BOOTSTRAP
+   ========================================================= */
+
+.btn-primary,
+.btn-warning {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: var(--dark);
+    font-weight: 800;
+}
+
+.btn-primary:hover,
+.btn-warning:hover {
+    border-color: var(--dark);
+    background: var(--dark);
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+
+
+.site-footer {
+    padding: 55px 0 25px;
+    border-top: 1px solid var(--border);
+    background: var(--brown-2);
+    color: var(--muted);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-content h3 {
+    color: var(--coffee);
+    font-family: "Playfair Display", serif;
+}
+
+.footer-content p {
+    color: var(--muted);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-links a {
+    color: var(--dark);
+    transition: color .25s ease;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .82rem;
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 991px) {
+    .navbar-nav {
+        padding: 18px 0;
+    }
+
+    .navbar-collapse {
+        padding: 0 20px 15px;
+        border-top: 1px solid var(--border);
+        background: #ffffff;
+    }
+
+    .nav-link {
+        padding: 10px 0 !important;
+    }
+
+    .hero-section .carousel-item {
+        height: 620px;
+    }
+
+    .carousel-caption {
+        right: 7%;
+        bottom: 15%;
+        left: 7%;
+    }
+
+    .carousel-caption h1,
+    .carousel-caption h2 {
+        font-size: 2.7rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .brand-logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .brand-text {
+        font-size: 1.05rem;
+    }
+
+    .hero-section .carousel-item {
+        height: 590px;
+        min-height: 590px;
+    }
+
+    .hero-section .carousel-item::after {
+        background:
+            linear-gradient(90deg,
+                rgba(255, 255, 255, .94),
+                rgba(255, 255, 255, .65));
+    }
+
+    .carousel-caption {
+        bottom: 13%;
+    }
+
+    .carousel-caption h1,
+    .carousel-caption h2 {
+        font-size: 2.15rem;
+    }
+
+    .carousel-caption p {
+        font-size: .95rem;
+    }
+
+    .about-image {
+        min-height: 300px;
+    }
+
+    .about-highlight {
+        right: 15px;
+    }
+
+    .order-box {
+        padding: 45px 15px;
+    }
+}
+
+.environment-card {
+    height: 100%;
+    padding: 18px;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: #fffaf3;
+    box-shadow: 0 8px 24px rgba(73, 45, 25, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.environment-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(73, 45, 25, 0.2);
+}
+
+.environment-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.environment-card h3 {
+    color: #5b351f;
+    font-weight: 700;
+}
+
+.environment-card p {
+    color: #6f625a;
+    line-height: 1.7;
+}
+
+.about-highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-highlight strong {
+    font-size: 2rem;
+}
+
+.about-highlight span {
+    font-size: 0.9rem;
+}
+
+.section-text {
+    line-height: 1.8;
+}
+        /* LOCALIZAÇÃO */
+
+        .location-section {
+            padding: 80px 0;
+            background: #fffaf0;
+            scroll-margin-top: 80px;
+        }
+
+        .location-section .section-title span {
+            display: block;
+            color: #a87916;
+        }
+
+        .map-card,
+        .info-card {
+            height: 100%;
+            overflow: hidden;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .map-box {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+        }
+
+        .map-box iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            border: 0;
+        }
+
+        .info-card {
+            padding: 30px;
+        }
+
+        .info-card h3 {
+            margin: 12px 0 28px;
+        }
+
+        .info-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .info-list .icon {
+            font-size: 25px;
+            line-height: 1.2;
+        }
+
+        .info-list strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #3b2b16;
+        }
+
+        .info-list p {
+            margin: 0;
+            color: #666;
+            overflow-wrap: anywhere;
+        }
+
+        .location-section .btn-coffee {
+            display: inline-block;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 8px;
+            background: #a87916;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .location-section .btn-coffee:hover {
+            background: #805b10;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .location-visit {
+            margin-top: 35px;
+            padding: 35px 20px;
+            border-radius: 20px;
+            background: #f3ead8;
+            text-align: center;
+        }
+
+        .location-visit p {
+            max-width: 650px;
+            margin: 15px auto 22px;
+        }
+
+        @media (max-width: 991px) {
+            .location-section {
+                padding: 55px 0;
+            }
+
+            .map-box,
+            .map-box iframe {
+                min-height: 350px;
+            }
+
+            .info-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .map-box,
+            .map-box iframe {
+                min-height: 300px;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+        }
