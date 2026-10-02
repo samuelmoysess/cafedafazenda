@@ -1,161 +1,258 @@
+
 document.addEventListener("DOMContentLoaded", () => {
-
-    const produtos = [
-        ...document.querySelectorAll(".order-product")
-    ];
-
-    const carrinho = document.getElementById("cartItems");
-    const totalElemento = document.getElementById("total");
+    const produtos = document.querySelectorAll(".order-product");
+    const cartItems = document.getElementById("cartItems");
+    const totalElement = document.getElementById("total");
+    const finalizarBotao = document.getElementById("finalizarPedido");
     const mensagem = document.getElementById("orderMessage");
 
-    const formatarDinheiro = valor => {
-        return valor.toLocaleString("pt-BR", {
+    const campoNome = document.getElementById("nome");
+    const campoTelefone = document.getElementById("telefone");
+    const campoPagamento = document.getElementById("pagamento");
+    const campoObservacoes = document.getElementById("observacoes");
+
+    // Impede erros caso algum elemento não exista na página.
+    if (
+        !cartItems ||
+        !totalElement ||
+        !finalizarBotao ||
+        !mensagem ||
+        !campoNome ||
+        !campoTelefone ||
+        !campoPagamento ||
+        !campoObservacoes
+    ) {
+        console.error("Erro: elementos do pedido não encontrados.");
+        return;
+    }
+
+    const formatarMoeda = (valor) =>
+        valor.toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL"
         });
-    };
 
-    // ATUALIZA O RESUMO E O VALOR TOTAL
-    function atualizarCarrinho() {
+    function obterItensCarrinho() {
+        const itens = [];
 
-        const selecionados = produtos.map(produto => ({
-            nome: produto.dataset.name,
-            preco: Number(produto.dataset.price),
-            quantidade: Number(
-                produto.querySelector(".quantity-value").textContent
-            )
-        })).filter(item => item.quantidade > 0);
+        produtos.forEach((produto) => {
+            const quantidadeElemento =
+                produto.querySelector(".quantity-value");
 
-        carrinho.replaceChildren();
+            if (!quantidadeElemento) return;
 
-        if (selecionados.length === 0) {
+            const quantidade =
+                Number.parseInt(quantidadeElemento.textContent, 10) || 0;
 
+            const nome = produto.dataset.name || "Produto";
+            const preco = Number.parseFloat(produto.dataset.price);
+
+            if (
+                quantidade > 0 &&
+                Number.isFinite(preco) &&
+                preco >= 0
+            ) {
+                itens.push({
+                    nome,
+                    quantidade,
+                    preco,
+                    subtotal: quantidade * preco
+                });
+            }
+        });
+
+        return itens;
+    }
+
+    function atualizarPedido() {
+        const itens = obterItensCarrinho();
+
+        cartItems.replaceChildren();
+
+        if (itens.length === 0) {
             const vazio = document.createElement("div");
             vazio.className = "empty-cart";
+
+            const icone = document.createElement("span");
+            icone.textContent = "☕";
 
             const texto = document.createElement("p");
             texto.textContent = "Seu pedido está vazio.";
 
-            const dica = document.createElement("small");
-            dica.textContent = "Escolha um produto para começar.";
+            const detalhe = document.createElement("small");
+            detalhe.textContent =
+                "Escolha um produto para começar.";
 
-            vazio.append(texto, dica);
-            carrinho.appendChild(vazio);
-
+            vazio.append(icone, texto, detalhe);
+            cartItems.appendChild(vazio);
         } else {
-
-            selecionados.forEach(item => {
-
+            itens.forEach((item) => {
                 const linha = document.createElement("div");
                 linha.className = "cart-item";
 
-                const nome = document.createElement("span");
-                nome.textContent =
-                    `${item.quantidade}x ${item.nome}`;
+                const detalhes = document.createElement("div");
 
-                const preco = document.createElement("strong");
-                preco.textContent = formatarDinheiro(
-                    item.preco * item.quantidade
-                );
+                const nome = document.createElement("strong");
+                nome.textContent = item.nome;
 
-                linha.append(nome, preco);
-                carrinho.appendChild(linha);
+                const quantidade = document.createElement("small");
+                quantidade.textContent =
+                    `${item.quantidade}x ${formatarMoeda(item.preco)}`;
+
+                detalhes.append(nome, quantidade);
+
+                const subtotal = document.createElement("span");
+                subtotal.textContent = formatarMoeda(item.subtotal);
+
+                linha.append(detalhes, subtotal);
+                cartItems.appendChild(linha);
             });
         }
 
-        const total = selecionados.reduce((soma, item) => {
-            return soma + item.preco * item.quantidade;
-        }, 0);
+        const total = itens.reduce(
+            (soma, item) => soma + item.subtotal,
+            0
+        );
 
-        totalElemento.textContent = formatarDinheiro(total);
+        totalElement.textContent = formatarMoeda(total);
 
-        return {
-            selecionados,
-            total
-        };
+        return { itens, total };
     }
 
-    // BOTÃO DE ADICIONAR
-    produtos.forEach(produto => {
+    function mostrarMensagem(texto, tipo) {
+        mensagem.textContent = texto;
+        mensagem.className = `order-message ${tipo}`;
+    }
 
+    // Botões de adicionar e remover produtos.
+    produtos.forEach((produto) => {
+        const mais = produto.querySelector(".plus");
+        const menos = produto.querySelector(".minus");
         const quantidade = produto.querySelector(".quantity-value");
-        const botaoMais = produto.querySelector(".plus");
-        const botaoMenos = produto.querySelector(".minus");
 
-        botaoMais.addEventListener("click", () => {
+        if (!mais || !menos || !quantidade) return;
 
-            quantidade.textContent =
-                Number(quantidade.textContent) + 1;
+        mais.addEventListener("click", () => {
+            const atual = Number.parseInt(quantidade.textContent, 10) || 0;
+            quantidade.textContent = atual + 1;
 
+            atualizarPedido();
             mensagem.textContent = "";
-            atualizarCarrinho();
         });
 
-        // BOTÃO DE DIMINUIR
-        botaoMenos.addEventListener("click", () => {
+        menos.addEventListener("click", () => {
+            const atual = Number.parseInt(quantidade.textContent, 10) || 0;
 
-            quantidade.textContent = Math.max(
-                0,
-                Number(quantidade.textContent) - 1
-            );
-
-            mensagem.textContent = "";
-            atualizarCarrinho();
+            if (atual > 0) {
+                quantidade.textContent = atual - 1;
+                atualizarPedido();
+                mensagem.textContent = "";
+            }
         });
     });
 
-    // FINALIZAR PEDIDO
-    document.getElementById("finalizarPedido")
-        .addEventListener("click", () => {
+    // Finalização do pedido.
+    finalizarBotao.addEventListener("click", () => {
+        const nome = campoNome.value.trim();
+        const telefone = campoTelefone.value.trim();
+        const pagamento = campoPagamento.value;
+        const observacoes = campoObservacoes.value.trim();
 
-            const { selecionados, total } = atualizarCarrinho();
+        const { itens, total } = atualizarPedido();
 
-            const nome = document.getElementById("nome")
-                .value.trim();
+        if (!nome) {
+            mostrarMensagem("Digite seu nome para continuar.", "error");
+            campoNome.focus();
+            return;
+        }
 
-            const telefone = document.getElementById("telefone")
-                .value.trim();
+        if (!telefone || telefone.replace(/\D/g, "").length < 10) {
+            mostrarMensagem(
+                "Digite um telefone válido com DDD.",
+                "error"
+            );
+            campoTelefone.focus();
+            return;
+        }
 
-            const pagamento = document.getElementById("pagamento")
-                .value;
+        if (!pagamento) {
+            mostrarMensagem(
+                "Escolha uma forma de pagamento.",
+                "error"
+            );
+            campoPagamento.focus();
+            return;
+        }
 
-            const observacoes = document.getElementById("observacoes")
-                .value.trim();
+        if (itens.length === 0 || total <= 0) {
+            mostrarMensagem(
+                "Adicione pelo menos um produto ao pedido.",
+                "error"
+            );
+            return;
+        }
 
-            if (selecionados.length === 0) {
-                mensagem.textContent =
-                    "Adicione pelo menos um produto ao pedido.";
-                return;
+        const pedido = {
+            id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+            nome,
+            telefone,
+            pagamento,
+            observacoes,
+            total,
+            data: new Date().toLocaleString("pt-BR"),
+            produtos: itens,
+            status: "Novo pedido"
+        };
+
+        try {
+            const pedidosSalvos = JSON.parse(
+                localStorage.getItem("pedidos") || "[]"
+            );
+
+            if (!Array.isArray(pedidosSalvos)) {
+                throw new Error("Formato de pedidos inválido.");
             }
 
-            if (!nome || !telefone || !pagamento) {
-                mensagem.textContent =
-                    "Preencha seu nome, telefone e forma de pagamento.";
-                return;
-            }
+            pedidosSalvos.push(pedido);
 
-            const listaProdutos = selecionados.map(item => {
-                return `• ${item.quantidade}x ${item.nome} - ${formatarDinheiro(item.preco * item.quantidade)
-                    }`;
-            }).join("\n");
+            localStorage.setItem(
+                "pedidos",
+                JSON.stringify(pedidosSalvos)
+            );
 
-            const textoPedido =
-                `Olá! Quero fazer um pedido na Cafeteria da Fazenda.\n\n` +
-                `Nome: ${nome}\n` +
-                `Telefone: ${telefone}\n\n` +
-                `${listaProdutos}\n\n` +
-                `Total: ${formatarDinheiro(total)}\n` +
-                `Pagamento: ${pagamento}` +
-                (observacoes
-                    ? `\nObservações: ${observacoes}`
-                    : "");
+            mostrarMensagem(
+                `Pedido realizado com sucesso! Total: ${formatarMoeda(total)}. ` +
+                "Os dados foram salvos neste navegador.",
+                "success"
+            );
 
-            mensagem.textContent =
-                "Pedido montado! O envio pelo WhatsApp precisa ser configurado.";
+            // Limpa o carrinho depois de salvar.
+            produtos.forEach((produto) => {
+                const quantidade =
+                    produto.querySelector(".quantity-value");
 
-            console.info(textoPedido);
-        });
+                if (quantidade) {
+                    quantidade.textContent = "0";
+                }
+            });
 
-    atualizarCarrinho();
+            atualizarPedido();
 
+            campoNome.value = "";
+            campoTelefone.value = "";
+            campoPagamento.value = "";
+            campoObservacoes.value = "";
+
+        } catch (erro) {
+            console.error("Erro ao salvar pedido:", erro);
+
+            mostrarMensagem(
+                "Não foi possível salvar o pedido. Tente novamente.",
+                "error"
+            );
+        }
+    });
+
+    // Atualiza o carrinho ao abrir a página.
+    atualizarPedido();
 });
