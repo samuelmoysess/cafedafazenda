@@ -1,10 +1,10 @@
-package br.com.CafeCavalo;
+package br.com.CafeDaFazenda;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CafeCavaloApplicationTests {
+class CafeDaFazendaApplicationTests {
 
 	@Test
 	void contextLoads() {
