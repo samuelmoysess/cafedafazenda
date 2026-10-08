@@ -52,15 +52,14 @@ body {
 }
 
 .brand-logo {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    border-radius: 50%;
-    background: white;
+    width: 64px;
+    height: 64px;
     padding: 3px;
+    object-fit: contain;
     border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--white);
 }
-
 .nav-link {
     color: var(--dark) !important;
     font-weight: 600;

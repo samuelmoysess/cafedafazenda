@@ -60,8 +60,8 @@ a {
 }
 
 .brand-logo {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     padding: 3px;
     object-fit: contain;
     border: 1px solid var(--border);

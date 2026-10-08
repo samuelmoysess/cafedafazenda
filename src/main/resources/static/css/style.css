@@ -69,8 +69,8 @@ a {
 }
 
 .brand-logo {
-    width: 52px;
-    height: 52px;
+    width: 64px;
+    height: 64px;
     padding: 3px;
     object-fit: contain;
     border: 1px solid var(--border);
@@ -582,132 +582,208 @@ a {
 .section-text {
     line-height: 1.8;
 }
-        /* LOCALIZAÇÃO */
 
-        .location-section {
-            padding: 80px 0;
-            background: #fffaf0;
-            scroll-margin-top: 80px;
-        }
+/* LOCALIZAÇÃO */
 
-        .location-section .section-title span {
-            display: block;
-            color: #a87916;
-        }
+.location-section {
+    padding: 80px 0;
+    background: #fffaf0;
+    scroll-margin-top: 80px;
+}
 
-        .map-card,
-        .info-card {
-            height: 100%;
-            overflow: hidden;
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-        }
+.location-section .section-title span {
+    display: block;
+    color: #a87916;
+}
 
-        .map-box {
-            width: 100%;
-            height: 100%;
-            min-height: 420px;
-        }
+.map-card,
+.info-card {
+    height: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
 
-        .map-box iframe {
-            display: block;
-            width: 100%;
-            height: 100%;
-            min-height: 420px;
-            border: 0;
-        }
+.map-box {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+}
 
-        .info-card {
-            padding: 30px;
-        }
+.map-box iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border: 0;
+}
 
-        .info-card h3 {
-            margin: 12px 0 28px;
-        }
+.info-card {
+    padding: 30px;
+}
 
-        .info-list {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
+.info-card h3 {
+    margin: 12px 0 28px;
+}
 
-        .info-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 22px;
-        }
+.info-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
 
-        .info-list .icon {
-            font-size: 25px;
-            line-height: 1.2;
-        }
+.info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 22px;
+}
 
-        .info-list strong {
-            display: block;
-            margin-bottom: 5px;
-            color: #3b2b16;
-        }
+.info-list .icon {
+    font-size: 25px;
+    line-height: 1.2;
+}
 
-        .info-list p {
-            margin: 0;
-            color: #666;
-            overflow-wrap: anywhere;
-        }
+.info-list strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #3b2b16;
+}
 
-        .location-section .btn-coffee {
-            display: inline-block;
-            padding: 12px 22px;
-            border: none;
-            border-radius: 8px;
-            background: #a87916;
-            color: #fff;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+.info-list p {
+    margin: 0;
+    color: #666;
+    overflow-wrap: anywhere;
+}
 
-        .location-section .btn-coffee:hover {
-            background: #805b10;
-            color: #fff;
-            transform: translateY(-2px);
-        }
+.location-section .btn-coffee {
+    display: inline-block;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #a87916;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
 
-        .location-visit {
-            margin-top: 35px;
-            padding: 35px 20px;
-            border-radius: 20px;
-            background: #f3ead8;
-            text-align: center;
-        }
+.location-section .btn-coffee:hover {
+    background: #805b10;
+    color: #fff;
+    transform: translateY(-2px);
+}
 
-        .location-visit p {
-            max-width: 650px;
-            margin: 15px auto 22px;
-        }
+.location-visit {
+    margin-top: 35px;
+    padding: 35px 20px;
+    border-radius: 20px;
+    background: #f3ead8;
+    text-align: center;
+}
 
-        @media (max-width: 991px) {
-            .location-section {
-                padding: 55px 0;
-            }
+.location-visit p {
+    max-width: 650px;
+    margin: 15px auto 22px;
+}
 
-            .map-box,
-            .map-box iframe {
-                min-height: 350px;
-            }
+@media (max-width: 991px) {
+    .location-section {
+        padding: 55px 0;
+    }
 
-            .info-card {
-                padding: 24px;
-            }
-        }
+    .map-box,
+    .map-box iframe {
+        min-height: 350px;
+    }
 
-        @media (max-width: 576px) {
-            .map-box,
-            .map-box iframe {
-                min-height: 300px;
-            }
+    .info-card {
+        padding: 24px;
+    }
+}
 
-            .info-card {
-                padding: 20px;
-            }
-        }
+@media (max-width: 576px) {
+
+    .map-box,
+    .map-box iframe {
+        min-height: 300px;
+    }
+
+    .info-card {
+        padding: 20px;
+    }
+}
+
+/* =========================================================
+   AJUSTE DA SEÇÃO HISTÓRIA
+   ========================================================= */
+
+.about-section {
+    overflow: hidden;
+}
+
+.about-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 0;
+}
+
+.about-image {
+    display: block;
+    width: 100%;
+    height: 480px;
+    min-height: 0;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow: 0 18px 45px rgba(168, 121, 22, .16);
+}
+
+.about-highlight {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 130px;
+    padding: 16px 22px;
+    border: 5px solid #ffffff;
+    border-radius: 20px;
+    background: var(--gold);
+    color: var(--dark);
+    text-align: center;
+}
+
+.about-highlight strong {
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.about-highlight span {
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+@media (max-width: 991px) {
+
+    .about-image {
+        height: 400px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .about-image {
+        height: 300px;
+    }
+
+    .about-highlight {
+        right: 15px;
+        bottom: 15px;
+    }
+
+}
